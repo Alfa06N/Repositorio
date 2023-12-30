@@ -21,13 +21,17 @@ body {
 }
 
 .consoleResults {
-    width: auto;
-    max-width: 400px; /* o cualquier otro valor máximo deseado */
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 200px;
+    max-width: 400px;
     height: auto;
-    max-height: 100px; /* o cualquier otro valor máximo deseado */
+    min-height: 50px;
+    max-height: 200px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    overflow: auto;
+    word-wrap: break-word;
     text-align: center;
-    /* Esto también centrará horizontalmente */
 }

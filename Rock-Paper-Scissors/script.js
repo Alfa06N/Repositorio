@@ -57,9 +57,11 @@ function updateConsoleResult(roundWinner, playerScore, computerScore, playerSele
     let lastChild = document.querySelector('#results').lastChild;
     let inputElement;
 
+    // Verifica si el último hijo del div #results es un input
     if (lastChild && lastChild.nodeType === 1 && lastChild.tagName.toLowerCase() === 'input') {
         inputElement = document.querySelector('input');
     } else {
+        // Si no existe, lo crea
         inputElement = document.createElement('input');
         inputElement.classList.add('consoleResults');
     }
