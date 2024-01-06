@@ -26,7 +26,7 @@ footer {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    height: 500px;
+    min-height: 500px;
     width: 350px;
     border: 1px solid black;
     border-radius: 1rem;
@@ -38,7 +38,7 @@ footer {
 }
 
 #calculator:hover {
-    box-shadow: rgba(0 ,0 ,0 ,0.7) 0px 10px 50px;
+    box-shadow: rgba(0 ,0 ,0 ,0.7) 0px 20px 50px;
 }
 
 #calculatorScreen {
@@ -88,7 +88,7 @@ footer {
 }
 
 #calculatorInterface button:active {
-    transform: scale(1)
+    transform: scale(1);
 }
 
 #calculatorInterface .operator:hover {
