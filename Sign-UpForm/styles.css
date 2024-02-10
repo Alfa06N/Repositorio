@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Norse-Bold';
+    src: url('Norse-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Roboto, system-ui;
+}
+
+body {
+    background-color: whitesmoke;
+    color: rgb(30, 30, 30);
+    height: 100dvh;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+}
+
+#plantita {
+    width: 350px;
+    height: 100vh;
+}
+
+#odin {
+    width: 70px;
+    height: 80px;
+}
+
+#image {
+    position: relative;
+}
+
+#credits {
+    position: absolute;
+    transform: translate(0, -50px);
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    /* background-color:rgba(0, 0, 0, .6); */
+}
+
+#credits a {
+    color: whitesmoke;
+}
+
+#odinLogo {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    color: whitesmoke;
+    font-family: 'Norse-Bold', Roboto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    transform: translate(0, -550px)
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+h3 {
+    width: 500px;
+}
+
+form {
+    background-color: white;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+
+}
+
+#header {
+    font-size: 18px
+}
+
+#header, form, #motivation, #footer {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#inputForm {
+    width: 40%;
+    display: flex;
+    flex-flow: column wrap;
+    font-size: 1.1em;
+    gap: 5px;
+}
+
+input {
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+input:hover {
+    border: 1px solid rgb(56, 56, 56);
+}
+
+input:focus {
+    border: 1px solid blue;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
+    transition: 0.2s;
+}
+
+input:not(:focus) {
+    transition: 0.2s;
+}
+
+button {
+    padding: 15px 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(60, 117, 60);
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
+    transition: 0.2s;
+}
+
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 5px 5px;
+    transition: 0.2s;
+}
+
+button:active {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 5px;
+}
+
+#logIn {
+    color: rgb(60, 117, 60);
+}
+
+link:visited {
+    color: purple;
+}
+
+input:not(:placeholder-shown):invalid {
+    border: 1px solid red;
+}
+
+/* Estilo para el input en el autocompletado de Chrome */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    /* Ajusta según sea necesario */
+    -webkit-text-fill-color: #333;
+    /* Color del texto en el autocompletado */
+}
+
+/* Estilo para el input en el autocompletado de Firefox */
+input:-moz-autofill {
+    box-shadow: 0 0 0px 1000px white inset;
+    /* Ajusta según sea necesario */
+    -moz-text-fill-color: #333;
+    /* Color del texto en el autocompletado */
+}
+
+input:valid {
+    border: 1px solid blue;
+}
