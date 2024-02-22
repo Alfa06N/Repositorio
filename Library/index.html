@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="book.ico">
+</head>
+<body>
+    <header>
+        <h1>Your Library</h1>
+    </header>
+
+    <main>
+        <div id="overlay"></div>
+
+        <div class="dialog">
+            <h3>Add New Book</h3>
+            <h4 class="exit">❌</h4>
+            <input type="text" class="inputDialog" id="titleInf" placeholder="Title" minlength="1">
+            <input type="text" class="inputDialog" id="authorInf" placeholder="Author" minlength="1">
+            <input type="number" class="inputDialog" id="pagesInf" placeholder="Número de Páginas" min="1">
+
+            <select id="categoryMenu">
+                <option value="Action">Action</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Terror">Terror</option>
+                <option value="Romance">Romance</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Finances">Finances</option>
+            </select>
+
+            <p id="check">Have you read it? <input type="checkbox" id="checkbox"></p>
+
+            <button type="submit" id="submit">Submit</button>
+        </div>
+
+        <!-- <div id="card">
+            <div id="info">
+                <h3 class="title">Deja de ser tú</h3>
+                <h4 id="author">Joe Dispenza</h4>
+                <p id="pages"><span>352</span> Páginas</p>
+                <p id="category">&#x1F9E0 Psicología</p>
+            </div>
+            
+            <div id="options">
+                <button id="buttonForDelete">Delete</button>
+                <button id="buttonForCheck">Not read</button>
+            </div>
+        </div> -->
+
+        <!-- <div id="card">
+            <div id="info">
+                <h3 class="title">Deja de ser tú</h3>
+                <h4 id="author">Joe Dispenza</h4>
+                <p id="pages"><span>352</span> Páginas</p>
+                <p id="category">&#x1F9E0 Psicología</p>
+            </div>
+        
+            <div id="options">
+                <button id="buttonForDelete">Delete</button>
+                <button id="buttonForCheck">Not read</button>
+            </div>
+        </div> -->
+
+        <button id="button"><img src="svgIcons/PlusCircle.svg" alt="Añadir"></button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
