@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Tic-Tac-Toe</h1>
+    </header>
+
+    <main class="main">
+        <button class="button start">Start</button>
+
+        <h2 class="playerName"></h2>
+        <div class="grid"></div>
+
+        <!-- dialog beginning -->
+        <div class="beginning">
+            <h3 class="request">Players Details</h3>
+
+            <form class="form">
+                <div class="inputPlayerOne">
+                        <label for="playerOne">Player Name #1</label>
+                <input type="text" minlength="3" max="20" class="inputOne">
+                </div>
+            
+                <div class="inputPlayerOne">
+                    <label for="playerTwo">Player name #2</label>
+                    <input type="text" minlength="3" max="20" class="inputTwo">
+                </div>
+
+                <button class="button accept" type="submit">Fight</button>
+            </form>
+            
+        </div>
+
+        <!-- dialog final -->
+        <div class="final">
+            <h3 class="winner">The winner is</h3>
+            <h2>Nicolás</h2>
+
+            <div class="options">
+                <button class="button cancel">Exit</button>
+                <button class="button reboot">Reboot</button>
+                
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </main>
+
+    <footer class="footer">
+        <p class="Copyright">Made by <b>Nicolás Alfaro</b></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

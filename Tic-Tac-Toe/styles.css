@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --shakespeare-50: #f0fafb;
+    --shakespeare-100: #d9eff4;
+    --shakespeare-200: #b7dfea;
+    --shakespeare-300: #85c7db;
+    --shakespeare-400: #4aa6c4;
+    --shakespeare-500: #308aaa;
+    --shakespeare-600: #2b718f;
+    --shakespeare-700: #285c76;
+    --shakespeare-800: #294e61;
+    --shakespeare-900: #264253;
+    --shakespeare-950: #0e1f29;
+}
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid gray; */
+    font-family: Roboto, system-ui, -apple-system;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100dvh;
+    gap: 10px;
+    background-color: var(--shakespeare-200);
+    color: var(--shakespeare-950);
+} 
+
+/* header */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 40px;
+    text-shadow: var(--shakespeare-500) 0px 5px 0px;
+}
+
+/* main */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+}
+
+button {
+    height: 40px;
+    min-width: 120px;
+    border-radius: 10px;
+    border:none;
+    background-image: linear-gradient(to bottom, var(--shakespeare-400), var(--shakespeare-600));
+    font-size: 20px;
+    color: var(--shakespeare-50);
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom, var(--shakespeare-500), var(--shakespeare-700));
+}
+
+button:active {
+    background-image: linear-gradient(to bottom, var(--shakespeare-600), var(--shakespeare-800));
+}
+
+    /* beginning dialog */
+.beginning {
+    position: fixed;
+    background-color: var(--shakespeare-50);
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 20px;
+    height: 350px;
+    width: auto;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+    z-index: 300;
+}
+
+.form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 10px;
+}
+
+.inputPlayerOne, .inputPlayerTwo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.inputPlayerOne label, .inputPlayerTwo label {
+    
+}
+
+.inputPlayerOne input, .inputPlayerTwo input {
+    border: 1px solid rgb(129, 129, 129);
+    border-radius: 4px;
+    appearance: none;
+    outline: none;
+    padding: 5px;
+}
+
+.inputPlayerOne input:hover, .inputPlayerTwo input:hover {
+    border: 1px solid rgb(59, 59, 59);
+}
+
+.inputPlayerOne input:focus, .inputPlayerTwo input:focus {
+    border: 1px solid blue;
+}
+
+.beginning .request {
+    font-size: 40px;
+    text-shadow: var(--shakespeare-500) 0px 3px 0px;
+    margin-bottom: 10px;
+}
+
+.beginning label {
+    font-size: 20px;
+}
+
+.beginning input {
+    width: 200px;
+    height: 30px;
+}
+
+    /* final dialog */
+.final {
+    position: fixed;
+    background-color: var(--shakespeare-50);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+    z-index: 200;
+    /* box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px, inset var(--shakespeare-200) 0px -20px 40px; */
+}
+
+.final h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.final h2::before {
+    content: '>> '
+}
+
+.final h2::after {
+    content: ' <<'
+}
+
+.final .button.cancel {
+    background-image: linear-gradient(to bottom, rgb(255, 80, 80), rgb(224, 31, 31));
+}
+
+
+.final .button.cancel:hover {
+    background-image: linear-gradient(to bottom, rgb(255, 69, 69), rgb(177, 24, 24));
+}
+
+.final .button.cancel:active {
+    background-image: linear-gradient(to bottom, rgb(255, 54, 54), rgb(143, 21, 21));
+}
+
+/* grid */
+
+.grid {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    background-color: var(--shakespeare-50);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
+    border-radius: 10px;
+}
+
+/* overlay */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 25px;
+}
