@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./fonts/Tangerine-Bold.woff') format('woff');
+  font-weight: bold;
+}
+
+* {
+  font-family: Roboto, system-ui, -apple-system;
+  position: relative;
+  box-sizing: border-box;
+  /* border: 1px solid gray; */
+}
+
+header {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  font-size: 120px;
+  text-align: center;
+  font-family: 'MyFont';
+  vertical-align: center;
+  padding: 5px;
+  margin: 5px ;
+  text-shadow: rgb(255, 251, 39) 0px 0px 5px;
+}
+
+body {
+  background-color:rgb(26, 25, 25);
+  margin: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+  gap: 20px;
+  background-image: url('images/RestaurantWallpaper.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  image-rendering: auto;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* nav */
+
+nav {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: flex-end; */
+  gap: 10px;
+  margin: 10px;
+}
+
+/* button */
+
+header button {
+  font-size: 25px;
+  appearance: none;
+  background-color: inherit;
+  border: none;
+  color: whitesmoke;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.selected {
+  box-shadow: inset rgb(255, 85, 63) 0px -2px 0px;
+  /* color: rgb(255, 85, 63); */
+  text-shadow: rgb(255, 85, 63) 0px 0px 5px;
+}
+
+/* content */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow:inset rgba(0, 0, 0, 0.7) 0px 0px 20px;
+  padding: 20px;
+  flex: 1;
+  width: 90vw;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.mainTitle {
+  font-size: 40px;
+  text-shadow: rgb(255, 251, 39) 0px 0px 3px;
+}
+
+.description {
+  font-size: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 20px;
+  margin-bottom: 0;
+  font-style: italic;
+  width: max(500px, 60vw);
+}
+
+.owner {
+  width: max(500px, 60vw);
+  text-align: right;
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.owner::before {
+  content: '~ ';
+}
+
+/* menu */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 450px;
+  width: max(500px, 60vw);
+  border-radius: 10px;
+  border: 2px solid rgb(255, 251, 39);
+  padding: 10px;
+  box-shadow: rgb(255, 251, 39) 0px 0px 10px;
+  text-align: center;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  gap: 10px;
+}
+
+.titleCard {
+  font-size: 80px;
+  font-family: 'MyFont';
+  margin: 10px;
+  text-shadow: rgb(255, 85, 63) 0px 0px 5px;
+}
+
+.imgCard {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.review {
+  font-size: 24px;
+  width: 80%;
+}
+
+footer {
+  background-color:rgba(0, 0, 0, 0.8);
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+}
+
+/* about */
+
+.networks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  height: 300px;
+  width: 80vw;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 251, 39);
+  box-shadow: rgb(255, 251, 39) 0px 0px 10px;
+}
+
+i {
+  color: black;
+  font-size: 40px;
+  text-shadow: rgb(255, 85, 63) 0px 0px 10px;
+}
+
+.list {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 40px;
+}
+
+.networkName {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.networkName:hover {
+  text-shadow: rgb(255, 85, 63) 0px 0px 5px;
+}
