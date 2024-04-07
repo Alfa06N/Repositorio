@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="lateralBar">
+    <header class="header">
+      <h1 class="user">@Me</h1>
+
+      <div class="menu-container">
+      <label for="menu-checkbox" class="menu-toggler"><img src="./icons/menu.svg" alt="menu" class="menuIcon"></label>
+      <input type="checkbox" id="menu-checkbox">
+    
+      <div class="menu">
+        <p class="option removeAll">Remove All</p>
+      </div>
+    </header>
+
+    <!-- <button class="button createItem"><img src="./icons/add.svg" alt="add">Create New</button> -->
+    
+    <div class="create-container">
+      <label for="create" class="create-toggler">
+        <img src="./icons/add.svg" alt="create" class="iconCreate">
+        <p>Create New</p>
+      </label>
+      
+      <input type="checkbox" id="create" class="createCheckbox">
+
+      <section class="menuCreate">
+
+        <div class="option task">
+          <img src="./icons/task.svg" alt="task">
+          <p>Task</p>
+        </div>
+
+        <div class="option project">
+          <img src="./icons/project.svg" alt="project">
+          <p>Project</p>
+        </div>
+      </section>
+    </div>
+    
+
+    <nav class="nav">
+      <button class="button principal selected">Principal</button>
+
+      <button class="button task">Tasks</button>
+
+      <button class="button project">Projects</button>
+    </nav>
+  </section>
+
+  <main class="content">
+    <div class="head">
+      <h2 class="headTitle">Principal</h2>
+
+      <img src="./icons/settings.svg" alt="settings" class="settings">
+    </div>
+    
+  </main>
+  <!-- <br>
+  <footer>
+    Copyright © 2024 Alfa06N
+  </footer> -->
+  
+<script defer src="bundle.js"></script></body>
+</html>
