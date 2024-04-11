@@ -1,82 +1,101 @@
-import storage from './modules/storage.js';
-import container from './modules/container.js';
+import { Task, Project } from "./modules/constructors";
+import NavigationManager from "./modules/navigation";
+import HeadManager from "./modules/head";
+import ContainerManager from "./modules/container";
+import { Storage } from "./modules/storage";
+import Items from "./modules/ItemsCreate";
+import DataManager from "./modules/storage";
+import FormManager, { FormLogic } from "./modules/formCreate";
 import './styles.css';
-import dialog from './modules/dialog.js';
-import navigation from './modules/navigation.js';
+import { getInputs, getCurrentItem } from "./modules/globalFunctions";
 
-const events = (() => {
-  const initEventListeners = () => {
-    containerEvents();
-    createEvents(); // Bótones para crear nuevo item
-    navEvents();
-    lateralBarEvents()
+class GlobalEvents {
+  static initEventListeners() {
+    GlobalEvents.contentLoad()
+    GlobalEvents.navigateMenu()
+    GlobalEvents.createMenu()
+    GlobalEvents.removeAll()
   }
 
-  const lateralBarEvents = () => {
-    const removeAll = document.querySelector('.removeAll');
-
-    removeAll.addEventListener('click', (event) => {
-      event.preventDefault();
-
-      storage.clearData();
-      container.updateContainer();
-    })
-  }
-
-  // Eventos al crear una nueva tarea
-  const createEvents = () => {
-    const project = document.querySelector('.option.project');
-    const task = document.querySelector('.option.task');
-
-    task.addEventListener('click', (event) => {
-      dialog.requestData('Task')
-    });
-
-    project.addEventListener('click', (event) => {
-      dialog.requestData('Project');
-    })
-  }
-
-  const containerEvents = () => {
+  static contentLoad() {
     document.addEventListener('DOMContentLoaded', (event) => {
-      event.preventDefault();
-      container.showPrincipal();
-    });
-  }
-
-  const navEvents = () => {
-    let principal = document.querySelector('.button.principal');
-    let task = document.querySelector('.button.task');
-    let project = document.querySelector('.button.project');
-
-    principal.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (!principal.classList.contains('selected')) {
-        navigation.switchClassSelected(principal);
-        
-        container.updateContainer();
-      }
-    })
-
-    task.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (!task.classList.contains('selected')) {
-        navigation.switchClassSelected(task)
-        container.updateContainer()
-        
-      }
-    });
-
-    project.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (!project.classList.contains('selected')) {
-        navigation.switchClassSelected(project);
-        container.updateContainer()
-      }
+      ContainerManager.fillContainer()
     })
   }
 
-  return { initEventListeners };
-})();
+  static navigateMenu() {
+    const navigation = document.querySelector('nav');
+    const navigationButtons = navigation.querySelectorAll('.button');
 
-events.initEventListeners();
+    navigationButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        if (!button.classList.contains('selected')) {
+
+          NavigationManager.switchSelected(button);
+          ContainerManager.fillContainer()
+          // AddEvents.eventsItem();
+        }
+      })
+    });
+  }
+
+  static createMenu() {
+    const createContainer = document.querySelector('.menuCreate')
+    const options = createContainer.querySelectorAll('.option');
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        if (option.classList.contains('task')) {
+          FormManager.displayRequestData('Task')
+        } else {
+          FormManager.displayRequestData('Project')
+        }
+      })
+    })
+  }
+
+  static removeAll() {
+    const removeAll = document.querySelector('.removeAll')
+
+    removeAll.addEventListener('click', () => {
+      DataManager.clearData()
+      ContainerManager.fillContainer();
+    })
+  }
+}
+
+class AddEvents {
+  static eventsForm() {
+    const confirm = document.querySelector('.confirm');
+
+    confirm.addEventListener('submitForm', () => {
+      if (FormLogic.validateFormData()) {
+        // Obtenemos los datos de las entradas con getInputs()
+        const item = getInputs()
+        console.log(item);
+
+        const form = document.querySelector('.dialog');
+        let newObj;
+        // Verificamos si el formulario es para tareas o proyectos:
+        if (form.classList.contains('Task')) {
+          newObj = Task.createTask(item.title.value, item.description.value, item.date.value, item.priority.textContent);
+        } else {
+          newObj = Project.createProject(item.title.value, item.description.value, item.date.value, item.priority.textContent, item.notes.value);
+        }
+
+        console.log(newObj);
+        if (!form.classList.contains('edit')) {
+          DataManager.addItem(newObj);
+          FormManager.closeRequest();
+          ContainerManager.fillContainer(); 
+        } else {
+          console.log(getCurrentItem())
+          // DataManager.modifyItem(newObj, currentItem);
+          
+        } 
+      }
+    })
+  }
+}
+
+GlobalEvents.initEventListeners();

@@ -1,29 +1,17 @@
-const navigation = (() => {
-  const getSelected = () => {
-    const selectedNav = document.querySelector('.selected');
-    return selectedNav;
-  }
-  const navigationButtons = () => {
-    return {
-      principal: document.querySelector('.button.principal'),
-      task: document.querySelector('.button.task'),
-      project: document.querySelector('.button.project')
-    }
+import { switchClassSelected } from "./globalFunctions";
+import HeadManager from "./head";
+
+class NavigationManager {
+  static switchSelected(newSelected) {
+    let nav = document.querySelector('nav');
+    switchClassSelected(nav, newSelected);
+    HeadManager.setTitle(newSelected)
   }
 
-  const switchClassSelected = (newSelected) => {
-    let actual = getSelected();
-    actual.classList.remove('selected');
-    newSelected.classList.add('selected');
-    switchTitle(newSelected);
+  static getSelected() {
+    let nav = document.querySelector('nav');
+    return document.querySelector('.selected');
   }
+}
 
-  const switchTitle = (newSelected) => {
-    const title = document.querySelector('.headTitle');
-    title.textContent = newSelected.textContent;
-  }
-
-  return { navigationButtons, getSelected, switchClassSelected }
-})();
-
-export default navigation
+export default NavigationManager;

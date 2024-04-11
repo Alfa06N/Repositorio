@@ -1,87 +1,66 @@
-const storage = (() => {
-
-  const getData = () => {
-      // Obtiene la data guardada y la retorna en formato de array con objetos
-      const data = JSON.parse(localStorage.getItem('data')) || [];
-      return data;
+class Storage {
+  static getData() {
+    const data = JSON.parse(localStorage.getItem('data')) || [];
+    return data;
   }
 
-  const saveData = (newData) => {
-    try {
-      // Guarda el nuevo objeto en formato de cadena en el json.
-      const data = getData();
-      data.push(newData);
-      updateData(data);
-      console.log('Datos agregados exitosamente al almacenamiento local.');
-    } catch (error) {
-      console.error('Ocurrió un error en el procesamiento de los datos');
-    }
+  static sendData(newData) {
+    localStorage.setItem('data', JSON.stringify(newData));
+  }
+}
+
+class DataManager {
+  static getItem(itemName) {
+    const data = Storage.getData();
+    const item = data.find(obj => obj.title === itemName);
+    return item;
   }
 
-  const getItem = (itemName) => {
-    const data = getData();
-    // Iteramos a través del array para obtener el objeto
-    for (const item of data) {
-      if (item.title === itemName) {
-        return item;
-      }
-    }
-    console.error('El objeto no existe');
-    return null;
+  static removeItem(itemName) {
+    const data = Storage.getData();
+    const newData = data.filter(item => item.title !== itemName);
+    Storage.sendData(newData);
   }
 
-  const removeItem = (itemName) => {
-    let data = getData();
-    data = data.filter(item => item.title !== itemName);
-    updateData(data);
-    console.log('Datos eliminados exitosamente');
-  }
+  static modifyItem(newItem, oldItem) {
+    const data = Storage.getData();
+    const oldItemName = oldItem.title;
+    const index = data.findIndex(item => item.title === oldItemName);
 
-  const modifyItem = (newItem) => {
-    // Obtener los datos
-    let data = getData();
-
-    // Obtener el título del nuevo
-    const itemName = newItem.title;
-
-    // Buscar el índice del elemento que quiero modificar
-    const index = data.findIndex(item => item.title === itemName)
-
-    // Si encuentro el índice, reemplazo el elemento:
     if (index !== -1) {
       data[index] = newItem;
+      Storage.sendData(data);
     } else {
-      console.log(`The item '${itemName}' has not been found in storage`);
-      return
+      console.log(`The item '${oldItemName}' has not been found in storage`);
     }
-
-    updateData(data);
   }
 
-  const updateData = (data) => {
-    localStorage.setItem('data', JSON.stringify(data));
+  static addItem(newItem) {
+    const data = Storage.getData();
+    data.push(newItem);
+    Storage.sendData(data);
   }
 
-  const clearData = () => {
-    // Elimina la data guardada en el navegador
-    localStorage.clear();
-    console.log('Se ha eliminado los datos del almacenamiento');
+  static clearData() {
+    localStorage.removeItem('data');
   }
 
-  const filterByClass = (className) => {
-    const data = getData();
-    return data.filter(item => item.class === className);
+  static getPrincipal() {
+    return Storage.getData();
   }
 
-  const filterTasks = () => {
-    return filterByClass('Task');
+  static filterByClass(selected) {
+    const data = Storage.getData();
+
+    if (selected.classList.contains('principal')) {
+      return data
+    } else if (selected.classList.contains('task')) {
+      return data.filter(item => item.class === 'Task');
+    } else {
+      return data.filter(item => item.class === 'Project');
+    }
   }
+}
 
-  const filterProjects = () => {
-    return filterByClass('Project')
-  }
-
-  return { getData, saveData, clearData, getItem, removeItem, filterTasks, filterProjects, modifyItem };
-})();
-
-export default storage;
+export default DataManager;
+export { Storage };

@@ -1,48 +1,86 @@
+export { Task, Project };
+
 class Task {
-  constructor(title, description, dueDate, priority) {
+  constructor(title, description, date, priority) {
     this.class = 'Task';
     this.title = title;
     this.description = description;
-    this.dueDate = dueDate;
+    this.date = date;
     this.priority = priority;
     this.finish = false;
   }
 
-  static createTask() {
-    const dialog = document.querySelector('.dialog');
+  getClass() {
+    return this.class;
+  }
 
-    let titleValue = dialog.querySelector('.title').value;
-    let descriptionValue = dialog.querySelector('.description').value;
-    let dateValue = dialog.querySelector('.dueDate').value;
-    let priorityValue = dialog.querySelector('.selected').textContent;
+  getFinish() {
+    return this.finish;
+  }
 
-    const newObj = new Task(titleValue, descriptionValue, dateValue, priorityValue);
+  getTitle() {
+    return this.title;
+  }
+
+  getDescription() {
+    return this.description;
+  }
+
+  getDate() {
+    return this.date;
+  }
+
+  getPriority() {
+    return this.priority;
+  }
+
+  static createTask(title, description, date, priority) {
+    const newObj = new Task(title, description, date, priority);
 
     return newObj;
   }
 }
 
 class Project extends Task {
-  constructor(title, description, dueDate, priority, notes) {
-    super(title, description, dueDate, priority);
+  constructor(title, description, date, priority, notes) {
+    super(title, description, date, priority);
     this.class = 'Project';
     this.notes = notes;
     this.finish = false;
   }
 
-  static createProject() {
-    const dialog = document.querySelector('.dialog');
+  getClass() {
+    return this.class;
+  }
 
-    let titleValue = dialog.querySelector('.title').value;
-    let descriptionValue = dialog.querySelector('.description').value;
-    let dateValue = dialog.querySelector('.dueDate').value;
-    let priorityValue = dialog.querySelector('.selected').textContent;
-    let notesValue = dialog.querySelector('.notes').value;
+  getFinish() {
+    return this.finish;
+  }
 
-    const newObj = new Project(titleValue, descriptionValue, dateValue, priorityValue, notesValue);
+  getTitle() {
+    return this.title;
+  }
+
+  getDescription() {
+    return this.description;
+  }
+
+  getDate() {
+    return this.date;
+  }
+
+  getPriority() {
+    return this.priority;
+  }
+
+  getNotes() {
+    return this.notes;
+  }
+
+  static createProject(title, description, dueDate, priority, notes) {
+
+    const newObj = new Project(title, description, dueDate, priority, notes);
 
     return newObj;
   }
 }
-
-export { Task, Project };
