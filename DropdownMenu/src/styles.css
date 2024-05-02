@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 10px;
+  gap: 10px;
+  font-family: Roboto, system-ui;
+  background-color: whitesmoke;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.header {
+  font-size: 32px;
+  font-weight: 900;
+  text-shadow: 2px 0px 0px rgb(255, 143, 38);
+  text-wrap: pretty;
+}
+
+label {
+  margin: 0;
+  /* justify-content: center;
+  align-items:center;
+  height: auto; */
+  width: auto;
+}
+
+img {
+  width: 34px;
+  border-radius: 10px;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  font-size: 18px;
+  padding: 5px;
+  height: auto;
+  width: 200px;
+  border-radius: 10px;
+  gap: 5px;
+  background-color: rgb(211, 211, 211);
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.4);
+  animation: 0.2s blockIn;
+  transform-origin:left top;  
+}
+
+.menuToggler {
+  transition: background-color 0.1s;
+  cursor: pointer;
+  background-color: rgb(211, 211, 211)
+}
+
+.menuContainer:has(.activate) > .menu {
+  display: flex;
+}
+
+.option {
+  border-radius: 5px;
+  margin: 0;
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+
+.option:hover, .menuToggler:hover {
+  background-color: rgb(167, 167, 167)
+}
+
+.option:active, .menuToggler:active {
+  background-color: rgb(180, 180, 180);
+}
+
+@keyframes blockIn {
+  from {
+    opacity: 0.4;
+    transform: scale(0.4);
+  } to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blockOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  } to {
+    opacity: 0.4;
+    transform: scale(0.4);
+  }
+}
+
