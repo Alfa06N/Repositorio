@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('./fonts/Tangerine-Bold.woff') format('woff');
+  font-weight: bold;
+}
+
+:root {
+  --300: #BEA6FF;
+  --500: #843DFF;
+  --700: #A600FF;
+}
+
+* {
+  position: relative;
+  box-sizing: border-box;
+  font-family: Roboto, system-ui;
+  color: rgb(17, 17, 17)
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to top, var(--500), var(--300));
+}
+
+/* header */
+
+.header {
+  padding: 10px;
+  text-align: center;
+  font-size: 60px;
+  text-shadow: 0px 0px 10px var(--300);
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'My Font';
+  background-color: rgba(0, 0, 0, 0.4);
+  color: whitesmoke;
+  margin: 0;
+  user-select: none;
+}
+
+/* main */
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 15px;
+  width: 500px;
+}
+
+.point {
+  background-color: var(--300);
+  border-radius: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  /* margin: 0 5px; */
+  cursor: pointer;
+}
+
+.point.active {
+  background-color: var(--700);
+}
+
+/* images */
+
+.container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid var(--500);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.active {
+  display: block;
+}
+
+/* buttons */
+
+button {
+  background-color: inherit;
+  border: none;
+  border-radius: 20px;
+  height: 45px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.2) 
+}
+
+button:active {
+  background-color: rgba(0, 0, 0, 0.4);
+}
