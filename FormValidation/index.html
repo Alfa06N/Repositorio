@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>Fill in all fields</legend>
+    
+    <p class="line">
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+      <span class="email"></span>
+    </p>
+
+    <p class="line">
+      <label for="country">Country</label>
+      <input type="text" id="country" pattern="^(?![0-9]+$)[a-zA-Z\s-]+$" required>
+      <span class="country"></span>
+    </p>
+
+    <p class="line">
+      <label for="zipCode">Zip Code</label>
+      <input type="number" id="zipCode" min="0" required>
+      <span class="zipCode"></span>
+    </p>
+
+    <p class="line">
+      <label for="password">Password</label>
+      <input type="password" id="password" minlength="8" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" required>
+      <span class="password"></span>
+    </p>
+
+    <p class="line">
+      <label for="passwordConfirmation">Password Confirmation</label>
+      <input type="password" id="passwordConfirmation" minlength="8" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" required> 
+      <span class="passwordConfirmation"></span>
+    </p>
+
+    <button class="submit" type="submit">Submit</button>
+  </fieldset>
+
+  <script src="script.js"></script>
+</body>
+</html>
