@@ -57,6 +57,7 @@ class LinkedList {
   }
 
   pop() {
+    if (!this.head) return null;
     if (this.size() <= 1) {
       this.head = null;
       return null;
@@ -68,7 +69,7 @@ class LinkedList {
       currentNode = currentNode.next;
     }
 
-    tailNode = currentNode.next;
+    let tailNode = currentNode.next;
     currentNode.next = null;
     this.tail = this.size() == 1 ? null : currentNode;
 
