@@ -9,6 +9,7 @@ export class Ship {
 
   getHit() {
     this.hit += 1;
+    this.isSunk();
     return this.hit;
   }
 

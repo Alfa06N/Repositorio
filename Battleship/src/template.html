@@ -29,7 +29,12 @@
       </section>
     </main>
     <footer class="footer">
-      <p>© 2024 Alfa06N | <i data-feather="github" class="icon-button"></i></p>
+      <p>
+        © 2024 Alfa06N |
+        <a href="https://github.com/Alfa06N"
+          ><i data-feather="github" class="icon-button"></i
+        ></a>
+      </p>
     </footer>
     <div class="dialog-modal" id="player-setup-dialog">
       <div class="dialog-content">
@@ -42,9 +47,18 @@
           <div class="error-message-container">
             <p class="error-message"></p>
           </div>
-          <!-- <button type="button" id="random-setup">Random placement</button> -->
           <button type="submit" class="button submit-dialog">Start Game</button>
         </form>
+      </div>
+    </div>
+
+    <div class="dialog-winner">
+      <div class="dialog-content">
+        <h2>The winner is:</h2>
+        <h1></h1>
+        <button type="submit" class="button submit-winner">
+          Wanna play again?
+        </button>
       </div>
     </div>
   </body>

@@ -2,11 +2,6 @@ import { GameBoard } from "./board";
 import { gridOne, gridTwo } from "../domElements";
 
 export function loadContent() {
-  const gridOne = document.querySelector(".grid.player-grid");
-  console.log(gridOne);
-  const gridTwo = document.querySelector(".grid.enemy-grid");
-  console.log(gridTwo);
-
   const newBoard = new GameBoard();
 
   function fillGrid(grid) {
@@ -16,10 +11,10 @@ export function loadContent() {
     });
 
     for (let boardRow of newBoard.board) {
-      for (let [rowKey, columnKey] of boardRow) {
+      for (let value of boardRow) {
         const box = document.createElement("div");
         box.className = "grid-box unbeaten";
-        box.setAttribute("id", `${rowKey}${columnKey}`);
+        box.setAttribute("id", `${value}`);
         grid.appendChild(box);
       }
     }
@@ -30,8 +25,8 @@ export function loadContent() {
 }
 
 export function selectBox(box) {
-  box.classList.replace("unbeaten", "beaten");
   console.log(box);
+  box.classList.replace("unbeaten", "beaten");
 }
 
 export function showDialog() {
@@ -47,5 +42,16 @@ export function closeDialog() {
   const game = document.querySelector(".game-area");
 
   game.classList.remove("blurred");
+  dialog.classList.remove("visible");
+}
+
+export function showWinner(winner) {
+  const dialog = document.querySelector(".dialog-winner");
+  dialog.querySelector("h1").textContent = winner;
+  dialog.classList.add("visible");
+}
+
+export function closeWinner() {
+  const dialog = document.querySelector(".dialog-winner");
   dialog.classList.remove("visible");
 }

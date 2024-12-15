@@ -7,6 +7,8 @@ import {
   selectBox,
   showDialog,
   closeDialog,
+  showWinner,
+  closeWinner,
 } from "./Classes/interface";
 import {
   gridOne,
@@ -18,8 +20,9 @@ import {
   startGameButton,
   playerOverlay,
   enemyOverlay,
+  consoleElement,
+  winnerButton,
 } from "./domElements";
-import { GameBoard } from "./Classes/board";
 
 // addEventListeners
 document.addEventListener("DOMContentLoaded", async () => {
@@ -27,35 +30,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadContent();
   showDialog();
 
-  console.log("Enemy grid", gridTwo);
   gridTwo.addEventListener("click", (event) => {
     const target = event.target.closest(".grid-box");
     if (!target) return;
 
     if (target.classList.contains("unbeaten")) {
       console.log(target);
-      if (gameManager.currentTurn === gameManager.player) {
-        const hit = gameManager.handleAttack(
-          gameManager.player,
-          gameManager.ai,
-          target.id
-        );
-
-        target.classList.remove("unbeaten");
-        target.classList.add("beaten");
-        target.classList.add(hit ? "hit" : "missed");
-
-        console.log(`Hitting location: ${target.id}`);
-
-        if (hit) {
-          console.log("Nice shot!");
-        } else {
-          console.log("Better luck next time!");
-        }
-
-        // Switch turn after the attack
-        gameManager.switchTurn();
-      }
+      attackBox(gameManager.player, gameManager.ai, target);
     }
   });
 
@@ -103,19 +84,40 @@ document.addEventListener("turnChanged", (event) => {
     // Delay AI attack to simulate turn progression
     setTimeout(() => {
       const coordinates = gameManager.ai.generateRandomAttack();
-      const hit = gameManager.handleAttack(
-        gameManager.ai,
-        gameManager.player,
-        coordinates
-      );
       const box = gridOne.querySelector(`#${coordinates}`);
-      selectBox(box);
-      box.classList.add(hit ? "hit" : "missed");
-
-      gameManager.switchTurn(); // Switch back to player after AI's turn
-    }, 1000); // 1-second delay
+      attackBox(gameManager.ai, gameManager.player, box);
+    }, 1500); // 1.5-second delay
   }
 });
 
+document.addEventListener("gameConsoleUpdate", (event) => {
+  const { message } = event.detail;
+
+  const newLog = consoleElement.querySelector("p");
+  newLog.textContent = message;
+
+  consoleElement.scrollTop = consoleElement.scrollHeight;
+});
+
+winnerButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  closeWinner();
+  loadContent();
+  gameManager.initializeGame(gameManager.player.name);
+  consoleElement.querySelector("p").textContent = "The game has been restarted";
+});
+
 // functions
-function startGame(playerName) {}
+function attackBox(attacker, target, box) {
+  const hit = gameManager.handleAttack(attacker, target, box.id);
+  selectBox(box);
+  box.classList.add(hit ? "hit" : "missed");
+
+  const result = gameManager.isGameOver();
+
+  if (result) {
+    showWinner(result);
+  } else {
+    gameManager.switchTurn();
+  }
+}

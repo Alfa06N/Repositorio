@@ -19,10 +19,10 @@ export class Player {
           availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
       }
     }
-    this.alreadyBeaten.push(coordinates.join(""));
-    console.log(this.alreadyBeaten.length);
+    this.alreadyBeaten.push(coordinates);
 
-    return coordinates.join("");
+    console.log(this.alreadyBeaten);
+    return coordinates;
   }
 
   attack(coordinates) {
@@ -31,23 +31,5 @@ export class Player {
       return coordinates;
     }
     return false;
-  }
-
-  getsHit(coordinates) {
-    for (let ship of this.ships) {
-      if (ship.coordinates.includes(coordinates)) {
-        ship.hit();
-        const isSunk = ship.isSunk();
-        return isSunk ? isSunk : `A ${this.name}'s ship has been hit`;
-      }
-    }
-    return false;
-  }
-
-  hasShips() {
-    for (let ship of this.ships) {
-      if (!ship.sunk) return false;
-    }
-    return true;
   }
 }

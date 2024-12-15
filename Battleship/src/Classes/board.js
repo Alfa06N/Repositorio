@@ -9,15 +9,15 @@ export class GameBoard {
 
   receiveAttack(coordinates) {
     if (this.shipCoordinates.has(coordinates)) {
-      this.ships.forEach((ship) => {
+      for (const ship of this.ships) {
         if (ship.coordinates.includes(coordinates)) {
           ship.getHit();
-          if (ship.isSunk()) {
-            console.log(`The ${ship.name} is sunk!`);
-            return { hit: true, sunk: true, ship };
+          if (ship.sunk) {
+            return { hit: true, sunk: true, ship: ship.name };
           }
+          return { hit: true, sunk: false };
         }
-      });
+      }
       return { hit: true, sunk: false };
     }
 
@@ -25,7 +25,7 @@ export class GameBoard {
   }
 
   isPlacementValid(start, direction, size) {
-    const [startX, startY] = [start[0], parseInt(start[1])];
+    const [startX, startY] = [start[0], parseInt(start.slice(1))];
     console.log(start[0], start[1]);
     const xAxis = "ABCDEFGHIJ";
     const xIndex = xAxis.indexOf(startX);
@@ -86,10 +86,20 @@ export class GameBoard {
     for (let character of xAxis) {
       const newList = [];
       for (let number of yAxis) {
-        newList.push([character, number]);
+        newList.push(character + number);
       }
       newBoard.push(newList);
     }
     return newBoard;
+  }
+
+  withoutShips() {
+    const ships = this.ships;
+
+    for (let ship of ships) {
+      if (!ship.isSunk()) return false;
+    }
+
+    return true;
   }
 }

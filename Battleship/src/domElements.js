@@ -9,3 +9,5 @@ export const playerOverlay = document.querySelector(
   ".player-grid .grid-overlay"
 );
 export const enemyOverlay = document.querySelector(".enemy-grid .grid-overlay");
+export const consoleElement = document.querySelector(".console");
+export const winnerButton = document.querySelector(".submit-winner");

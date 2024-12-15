@@ -1,8 +1,7 @@
 import { Player } from "./player";
 import { GameBoard } from "./board";
-import { Ship, ships } from "./ship";
-import { gridOne } from "../domElements";
-import { selectBox } from "./interface";
+import { logToConsole } from "./events";
+
 class GameManager {
   constructor() {
     this.player = null;
@@ -21,11 +20,6 @@ class GameManager {
     this.ai.board.placeAllShips();
 
     this.currentTurn = this.player;
-
-    console.log("Game Initialized!");
-    console.log(`Player ${this.player.name}`);
-    console.log(`Player Ships:`, this.player.board.ships);
-    console.log(`AI Ships:`, this.ai.board.ships);
   }
 
   switchTurn() {
@@ -40,18 +34,30 @@ class GameManager {
     const result = target.board.receiveAttack(coordinates);
 
     if (result.hit) {
-      console.log(`${attacker.name} hit a ship at ${coordinates}!`);
       if (result.sunk) {
-        console.log(`${attacker.name} sunk the ${result.ship.name}!`);
+        logToConsole(`${attacker.name} sunk the ${result.ship}!`);
+      } else {
+        logToConsole(`${attacker.name} hit a ship at ${coordinates}!`);
       }
     } else {
-      console.log(`${attacker.name} missed at ${coordinates}.`);
+      logToConsole(`${attacker.name} missed at ${coordinates}.`);
     }
 
     return result.hit;
   }
 
-  checkGameState() {}
+  isGameOver() {
+    const playerBoard = this.player.board;
+    const aiBoard = this.ai.board;
+
+    if (playerBoard.withoutShips()) {
+      return `${this.ai.name} has won the game!`;
+    } else if (aiBoard.withoutShips()) {
+      return `${this.player.name} has won the game!`;
+    }
+
+    return false;
+  }
 }
 
 export const gameManager = new GameManager();
