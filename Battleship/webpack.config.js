@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist-battleship"),
   },
   mode: "development",
   module: {
@@ -35,7 +35,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: "./dist",
+    static: "./dist-battleship",
     compress: true,
     port: 8080,
     open: true,

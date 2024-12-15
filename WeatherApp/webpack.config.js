@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js", // Entry file
   output: {
     filename: "main.js", // Output file's name
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist-weather"),
   },
   mode: "development",
   module: {
@@ -35,7 +35,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: "./dist",
+    static: "./dist-weather",
     compress: true,
     port: 8080,
     open: true,
