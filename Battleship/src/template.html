@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battleship Game</title>
+  </head>
+  <body>
+    <header class="header"><h1>Battleship</h1></header>
+    <main class="main">
+      <section class="game-area">
+        <div class="grid-container">
+          <div class="grid player-grid">
+            <div class="grid-overlay">
+              <p>Player's turn</p>
+            </div>
+          </div>
+          <div class="grid enemy-grid">
+            <div class="grid-overlay">
+              <p>Computer's turn</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="console-area">
+        <div class="console">
+          <p>Game logs and actions will appear here.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2024 Alfa06N | <i data-feather="github" class="icon-button"></i></p>
+    </footer>
+    <div class="dialog-modal" id="player-setup-dialog">
+      <div class="dialog-content">
+        <h2>Player Setup</h2>
+        <form class="player-form">
+          <label for="player-name"
+            >Enter your name:
+            <input type="text" id="player-name" name="player-name" required
+          /></label>
+          <div class="error-message-container">
+            <p class="error-message"></p>
+          </div>
+          <!-- <button type="button" id="random-setup">Random placement</button> -->
+          <button type="submit" class="button submit-dialog">Start Game</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

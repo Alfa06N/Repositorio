@@ -6,22 +6,23 @@ export class Player {
     this.real = real;
   }
 
-  randomAttack() {
+  generateRandomAttack() {
     let coordinates = null;
     while (!coordinates) {
-      // Select a random row of the board
       const randomRow = Math.floor(Math.random() * this.board.board.length);
-      // Filter the available boxes of the row
       const availableBoxes = this.board.board[randomRow].filter(
         (box) => !this.alreadyBeaten.includes(box)
       );
-      // Select one random box
+
       if (availableBoxes.length > 0) {
         coordinates =
           availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
       }
     }
-    this.attack(coordinates);
+    this.alreadyBeaten.push(coordinates.join(""));
+    console.log(this.alreadyBeaten.length);
+
+    return coordinates.join("");
   }
 
   attack(coordinates) {
