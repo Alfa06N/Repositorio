@@ -49,6 +49,12 @@ This project brings the timeless Battleship game to the browser. Players take tu
 
 ---
 
+## **Screenshot**
+
+![Battleship Game](./images/Battleship-Image.png)
+
+---
+
 ## **Future Enhancements**
 
 - **Multiplayer Mode**: Allowing two players to compete against each other.
