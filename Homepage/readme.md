@@ -108,13 +108,13 @@ For inquiries or collaborations, feel free to reach out:
 
 ## Screenshots
 
-![Arcane Header](./images/screenshots/header.png)
+![Arcane Header](./images/Screenshots/header.png)
 _Screenshot of the header section._
 
-![Character Cards](./images/screenshots/cards.png)
+![Character Cards](./images/Screenshots/cards.png)
 _Showcase of the main characters' cards._
 
-![Footer Section](./images/screenshots/footer.png)
+![Footer Section](./images/Screenshots/footer.png)
 _Contact details and footer._
 
 ---
