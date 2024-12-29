@@ -63,7 +63,11 @@ Ensure you have the following installed:
    ```bash
    npm run install
    ```
-4. Run the project:
+4. Run webpack:
+   ```bash
+   npm run build
+   ```
+5. Run the project:
    ```bash
    npx webpack server
    ```

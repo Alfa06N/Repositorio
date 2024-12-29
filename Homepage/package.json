@@ -4,10 +4,12 @@
     "@babel/preset-env": "^7.26.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.2.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
     "style-loader": "^4.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.97.1",
@@ -15,7 +17,8 @@
     "webpack-dev-server": "^5.2.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "cross-env NODE_ENV=production && webpack"
   },
   "dependencies": {
     "feather-icons": "^4.29.2",
