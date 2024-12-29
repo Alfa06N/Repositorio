@@ -511,19 +511,19 @@ a:focus {
   text-shadow: 0px 0px 2px var(--text-color-secondary);
 }
 
-.card:focus,
-.right-side > img:focus,
-.about-me:focus,
-.image-presentation > img:focus {
+.card:focus-visible,
+.right-side > img:focus-visible,
+.about-me:focus-visible,
+.image-presentation > img:focus-visible {
   outline: none;
   border-radius: 10px;
-  transition: border 0s;
+  transition: border 0.2s;
   border: 3px solid var(--text-color-secondary);
 }
 
-.image-presentation > img:focus {
+.image-presentation > img:focus-visible {
   outline: none;
   border-radius: 10px;
-  transition: border 0s;
+  transition: border 0.3s;
   border: 3px solid var(--bkg-color-secondary);
 }
