@@ -1,0 +1,130 @@
+.form-section {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+}
+
+.form-section > * {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: width 0.5s ease;
+}
+
+h2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  padding: 0.5rem;
+}
+
+h2 .icon {
+  position: absolute;
+  right: 1.2em;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+h2 .icon.active {
+  color: var(--contrast-color);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+form {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  interpolate-size: allow-keywords;
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+form.active {
+  height: auto;
+  opacity: 1;
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr));
+  grid-gap: 0 1rem;
+}
+
+.experience-item,
+.education-item,
+.skill-item {
+  interpolate-size: allow-keywords;
+  animation: show-up 0.3s ease-in-out;
+}
+
+.experience-item.removing,
+.education-item.removing,
+.skill-item.removing {
+  interpolate-size: allow-keywords;
+  animation: removing 0.3s ease-in-out forwards;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  interpolate-size: allow-keywords;
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.button-container.activate {
+  height: auto;
+  opacity: 1;
+}
+
+@media (min-width: 721px) {
+  .form-section {
+    flex: 1;
+  }
+}
+
+@keyframes show-up {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: auto;
+  }
+}
+
+@keyframes removing {
+  from {
+    opacity: 1;
+    height: auto;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}

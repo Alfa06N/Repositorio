@@ -1,0 +1,61 @@
+.div-field {
+  margin: 0.8rem 0;
+  background: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-field {
+  height: fit-content;
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  font-size: var(--paragraph-font-size);
+  border: 2px solid var(--low-contrast-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.text-field::placeholder {
+  color: var(--low-contrast-color);
+  opacity: 0;
+}
+
+.text-field:focus {
+  border-color: var(--contrast-color);
+}
+
+.text-field:focus + label,
+.text-field:not(:placeholder-shown) + label {
+  transform: translateY(-1.4rem);
+  font-size: calc(var(--paragraph-font-size) * 0.8);
+  color: var(--contrast-color);
+  background-color: var(--background-color-secondary);
+}
+
+.text-field:focus + label,
+.text-field:not(:placeholder-shown)::placeholder {
+  opacity: 1;
+}
+
+label {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.5rem;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: var(--paragraph-font-size);
+  color: var(--low-contrast-color);
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  background-color: inherit;
+  padding: 0 0.4rem;
+}
+
+.text-field:disabled {
+  color: var(--low-contrast-color);
+}

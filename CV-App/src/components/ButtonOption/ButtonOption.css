@@ -1,0 +1,10 @@
+.button.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.6rem 0.6rem;
+  margin: 0.1rem 0.4rem;
+  border: 2px solid var(--low-contrast-color);
+  width: fit-content;
+}

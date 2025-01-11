@@ -1,0 +1,11 @@
+.button-icon {
+  background-color: inherit;
+  color: var(--text-color);
+  padding: 0.3em 0.6em;
+  border-radius: 100%;
+}
+
+.button-icon svg {
+  width: calc(var(--paragraph-font-size) * 1.5);
+  height: calc(var(--paragraph-font-size) * 1.5);
+}
