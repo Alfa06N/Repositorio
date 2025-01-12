@@ -1,11 +1,5 @@
-import {
-  useState,
-  useCallback,
-  createContext,
-  useContext,
-  useEffect,
-} from "react";
-import "./form.css";
+import { useState, useCallback, createContext } from "react";
+import "./Form.css";
 import Personal from "./section-form/Personal";
 import Education from "./section-form/Education";
 import Skills from "./section-form/Skills";
