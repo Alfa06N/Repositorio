@@ -2,19 +2,12 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, 160px);
   gap: 0.5em;
   margin: 0;
   padding-inline: 0.5em;
   transition: all 0.2s ease;
-}
-
-.cards-container.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 article.loading {
