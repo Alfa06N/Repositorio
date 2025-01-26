@@ -87,7 +87,8 @@ a:hover {
   height: 100vh;
   z-index: -1;
   background-color: rgb(221, 0, 0);
-  clip-path: polygon(0 0, 95% 0, 0% 95%);
+  transform: skewY(-50deg);
+  transform-origin: top left;
 }
 
 .bg.black {
@@ -95,7 +96,8 @@ a:hover {
   height: 100vh;
   z-index: -2;
   background-color: #242424;
-  clip-path: polygon(0 0, 100% 0, 100% 10%, 10% 100%, 0% 100%);
+  transform: skewY(-50deg);
+  transform-origin: top left;
 }
 
 * {
@@ -126,36 +128,40 @@ p {
 @media (max-width: 425px) {
   .bg.red {
     height: 500px;
-    clip-path: polygon(0 0, 85% 0, 0% 85%);
   }
 
   .bg.black {
-    height: 500px;
-    clip-path: polygon(0 0, 100% 0, 0% 100%);
+    height: 600px;
   }
 }
 
-@media (min-width: 426px) and (max-width: 768px) {
+@media (min-width: 425px) and (max-width: 768px) {
   .bg.red {
-    height: 800px;
-    clip-path: polygon(0 0, 85% 0, 0% 85%);
+    height: 600px;
   }
 
   .bg.black {
-    height: 800px;
-    clip-path: polygon(0 0, 100% 0, 0% 100%);
+    height: 700px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .bg.red {
-    height: 1000px;
-    clip-path: polygon(0 0, 85% 0, 0% 85%);
+    height: 800px;
   }
 
   .bg.black {
+    height: 900px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg.red {
     height: 1000px;
-    clip-path: polygon(0 0, 100% 0, 0% 100%);
+  }
+
+  .bg.black {
+    height: 1100px;
   }
 }
 
