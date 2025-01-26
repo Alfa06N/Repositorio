@@ -72,7 +72,9 @@ export default function CardsContainer({ cards }) {
 
   return (
     <>
-      <section className="cards-container">
+      <section
+        className={loading ? "cards-container loading" : "cards-container"}
+      >
         {loading && (
           <article className="loading">
             <img className="loading-image" src={pikachu} alt="Pikachu image" />

@@ -19,9 +19,9 @@ A fun and challenging memory game where players must select each card only once 
 ## How to Play
 
 1. Choose a difficulty level:
-   - **Easy:** 5 cards to match.
-   - **Medium:** 10 cards to match.
-   - **Hard:** 15 cards to match.
+   - **Easy:** 6 cards to match.
+   - **Medium:** 12 cards to match.
+   - **Hard:** 18 cards to match.
 2. Your goal is to select each card **only once** without repeating.
 3. If you select a card you’ve already chosen, the game ends.
 4. Successfully select all cards without repetition to win the game!

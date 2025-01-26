@@ -1,17 +1,23 @@
 .cards-container {
-  display: flex;
-
-  flex-direction: row;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, 160px);
   gap: 0.5em;
   margin: 0;
   padding-inline: 0.5em;
   transition: all 0.2s ease;
 }
 
-.loading {
+.cards-container.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article.loading {
   height: 300px;
   width: 300px;
   display: flex;

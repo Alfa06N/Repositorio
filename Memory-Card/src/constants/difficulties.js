@@ -1,15 +1,15 @@
 const difficulties = {
   easy: {
     value: "Easy",
-    length: 5,
+    length: 6,
   },
   medium: {
     value: "Medium",
-    length: 10,
+    length: 12,
   },
   hard: {
     value: "Hard",
-    length: 15,
+    length: 18,
   },
 };
 
