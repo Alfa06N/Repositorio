@@ -1,0 +1,43 @@
+.button {
+  padding-inline: 2em;
+  padding-block: 1em;
+
+  width: fit-content;
+  align-self: center;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  outline: none;
+
+  cursor: pointer;
+  font-size: var(--paragraph-font-size);
+  background-color: var(--color);
+  color: #e0e0e0;
+  transition: 0.2s all ease-in-out;
+}
+
+.button.expand {
+  flex: 1;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rgb(42, 42, 190);
+}
+
+.button.secondary {
+  background-color: var(--bg-color);
+  color: var(--color);
+  border: 2px solid var(--color);
+}
+
+.button.secondary:hover,
+.button.button.secondary:focus {
+  border: 2px solid rgb(42, 42, 190);
+  color: rgb(42, 42, 190);
+}
+
+.button[disabled] {
+  pointer-events: none;
+  background-color: transparent;
+  color: var(--color);
+}

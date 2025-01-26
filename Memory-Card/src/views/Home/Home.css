@@ -1,0 +1,13 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.button-container {
+  width: 240px;
+  display: flex;
+  place-content: center;
+}

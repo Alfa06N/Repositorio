@@ -1,0 +1,12 @@
+.field.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+  font-size: var(--paragraph-font-size);
+}
+
+/* .checkbox {
+  accent-color: red;
+} */

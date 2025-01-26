@@ -1,0 +1,25 @@
+.score {
+  width: fit-content;
+  padding: 0.4em 1em;
+  margin-block: 0.5em;
+  margin-inline: auto;
+  user-select: none;
+
+  font-size: var(--subtitle-font-size);
+
+  border: 2px solid rgba(162, 162, 162, 0.5);
+  border-radius: 1em;
+  background: rgba(22, 22, 22, 0.826);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px rgba(22, 22, 22, 0.4);
+  color: var(--bg-color);
+}
+
+@media (min-width: 769px) {
+  .score {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}

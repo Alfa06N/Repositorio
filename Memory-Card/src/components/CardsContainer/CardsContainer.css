@@ -1,0 +1,48 @@
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0;
+  padding-inline: 0.5em;
+}
+
+.loading {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-image {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+  animation: shake-loading 1s linear infinite;
+}
+
+.loading-title {
+  color: var(--color);
+}
+
+@keyframes shake-loading {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
