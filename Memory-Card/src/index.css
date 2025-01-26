@@ -84,6 +84,7 @@ a:hover {
 
 .bg.red {
   width: 100%;
+  display: none;
   height: 100vh;
   z-index: -1;
   background-color: rgb(221, 0, 0);
@@ -92,6 +93,7 @@ a:hover {
 }
 
 .bg.black {
+  display: none;
   width: 100%;
   height: 100vh;
   z-index: -2;
