@@ -1,6 +1,7 @@
 .cards-container {
   display: flex;
-  flex: 1;
+
+  height: 100%;
   flex-direction: row;
   justify-content: center;
   align-content: center;
@@ -8,6 +9,7 @@
   gap: 0.5em;
   margin: 0;
   padding-inline: 0.5em;
+  transition: all 0.2s ease;
 }
 
 .loading {
