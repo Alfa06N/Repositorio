@@ -11,3 +11,23 @@ ul {
   display: flex;
   place-content: center;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  font-size: var(--paragraph-font-size);
+}
+
+.github-link {
+  color: #222;
+  font-size: var(--paragraph-font-size);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover,
+.github-link:focus {
+  color: #3b4cca;
+}

@@ -6,10 +6,11 @@ import Button from "../../components/Button/Button";
 import { GameContext } from "../../App";
 import gameStates from "../../constants/gameStates";
 import difficulties from "../../constants/difficulties";
+import { FaGithub } from "react-icons/fa";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(true);
-  const [checked, setChecked] = useState(null);
+  const [checked, setChecked] = useState(difficulties.medium.length);
   const { dispatch } = useContext(GameContext);
 
   const checkboxes = Object.entries(difficulties);
@@ -52,6 +53,16 @@ export default function Home() {
             expand={true}
           ></Button>
         </div>
+
+        <h3 className="footer">
+          Copyright ©{" "}
+          <a
+            href="https://github.com/Alfa06N/Repositorio/tree/main/Memory-Card"
+            className="github-link"
+          >
+            <FaGithub /> Alfa06N
+          </a>
+        </h3>
       </Dialog>
     </>
   );
