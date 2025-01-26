@@ -27,6 +27,7 @@
 #root {
   will-change: transform;
   overflow-x: hidden;
+  overflow-y: scroll;
   height: 100dvh;
   padding-bottom: 1em;
   display: flex;
