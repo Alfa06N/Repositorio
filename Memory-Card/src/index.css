@@ -123,6 +123,48 @@ p {
   font-size: var(--paragraph-font-size);
 }
 
+@media (max-width: 425px) {
+  .bg.red {
+    height: 500px;
+    clip-path: polygon(0 0, 85% 0, 0% 85%);
+  }
+
+  .bg.black {
+    height: 500px;
+    clip-path: polygon(0 0, 100% 0, 0% 100%);
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .bg.red {
+    height: 800px;
+    clip-path: polygon(0 0, 85% 0, 0% 85%);
+  }
+
+  .bg.black {
+    height: 800px;
+    clip-path: polygon(0 0, 100% 0, 0% 100%);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bg.red {
+    height: 1000px;
+    clip-path: polygon(0 0, 85% 0, 0% 85%);
+  }
+
+  .bg.black {
+    height: 1000px;
+    clip-path: polygon(0 0, 100% 0, 0% 100%);
+  }
+}
+
+@media (min-width: 1025px) {
+  .dialog {
+    width: min(80vw, 500px);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
